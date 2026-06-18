@@ -1,0 +1,1481 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ducasse & Fils — Maçon Tailleur de Pierre à Bordeaux</title>
+  <meta name="description" content="Ducasse & Fils, artisan maçon tailleur de pierre à Bordeaux. Restauration de bâtiments anciens, taille sur mesure, monuments et décoration en pierre. Devis gratuit." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ducasse-et-fils.fr" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ducasse & Fils — Maçon Tailleur de Pierre à Bordeaux" />
+  <meta property="og:description" content="Restauration, taille sur mesure et décoration en pierre. Artisan local à Bordeaux." />
+  <meta property="og:type" content="website" />
+
+  <!-- Schema.org LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "Ducasse & Fils",
+    "description": "Maçon tailleur de pierre à Bordeaux. Restauration, taille sur mesure, monuments et décoration.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bordeaux",
+      "addressRegion": "Nouvelle-Aquitaine",
+      "addressCountry": "FR"
+    },
+    "telephone": "+33-X-XX-XX-XX-XX",
+    "email": "contact@ducasse-et-fils.fr",
+    "areaServed": ["Bordeaux", "Gironde", "Nouvelle-Aquitaine"],
+    "knowsAbout": ["taille de pierre", "restauration de bâtiments anciens", "maçonnerie pierre", "décoration en pierre"],
+    "priceRange": "€€"
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Archivo:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── RESET & BASE ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #F5F2EC;
+      --surface:   #ECEAE3;
+      --ink:       #151310;
+      --ink-soft:  #4A4540;
+      --gold:      #B89A5A;
+      --gold-lt:   #D4B87A;
+      --white:     #FDFCF9;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Archivo', system-ui, sans-serif;
+      --gap: clamp(1.5rem, 5vw, 4rem);
+      --radius: 2px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-size: clamp(0.9rem, 1.2vw, 1rem);
+      font-weight: 300;
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+
+    /* ─── GRAIN OVERLAY ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.025;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ─── TYPOGRAPHY ─── */
+    h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 300; line-height: 1.1; }
+
+    .display {
+      font-size: clamp(3.5rem, 10vw, 9rem);
+      letter-spacing: -0.02em;
+      line-height: 0.9;
+    }
+    .display em { font-style: italic; color: var(--gold); }
+
+    .heading-xl { font-size: clamp(2.5rem, 6vw, 5.5rem); }
+    .heading-lg { font-size: clamp(1.8rem, 4vw, 3.2rem); }
+    .heading-md { font-size: clamp(1.3rem, 2.5vw, 2rem); }
+
+    .label {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── LAYOUT ─── */
+    .container {
+      width: min(100%, 1280px);
+      margin-inline: auto;
+      padding-inline: clamp(1.25rem, 5vw, 4rem);
+    }
+
+    section { padding-block: clamp(4rem, 10vw, 8rem); }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes lineGrow {
+      from { transform: scaleX(0); }
+      to   { transform: scaleX(1); }
+    }
+
+    .anim { opacity: 0; }
+    .anim.visible { animation: fadeUp 0.8s cubic-bezier(.22,1,.36,1) forwards; }
+    .anim-delay-1 { animation-delay: 0.1s; }
+    .anim-delay-2 { animation-delay: 0.2s; }
+    .anim-delay-3 { animation-delay: 0.35s; }
+    .anim-delay-4 { animation-delay: 0.5s; }
+
+    /* ─── HEADER ─── */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.25rem clamp(1.25rem, 5vw, 4rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.4s, backdrop-filter 0.4s;
+    }
+    header.scrolled {
+      background: rgba(245, 242, 236, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(184, 154, 90, 0.15);
+    }
+
+    .logo {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+    }
+    .logo span { color: var(--gold); }
+
+    nav { display: flex; gap: 2.5rem; align-items: center; }
+    nav a {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 400;
+      color: var(--ink-soft);
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--ink); }
+
+    .btn-header {
+      background: var(--ink);
+      color: var(--white);
+      padding: 0.6rem 1.4rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 400;
+      transition: background 0.2s;
+      border: 1px solid var(--ink);
+    }
+    .btn-header:hover { background: var(--gold); border-color: var(--gold); }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100svh;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      padding-top: 6rem;
+      padding-inline: clamp(1.25rem, 5vw, 4rem);
+      overflow: hidden;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: end;
+      padding-bottom: 3rem;
+    }
+
+    .hero-left { align-self: end; }
+
+    .hero-eyebrow {
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 2.5rem;
+      height: 1px;
+      background: var(--gold);
+      transform-origin: left;
+      animation: lineGrow 0.8s 0.3s cubic-bezier(.22,1,.36,1) both;
+    }
+
+    .hero-title {
+      font-size: clamp(4rem, 12vw, 10.5rem);
+      line-height: 0.88;
+      letter-spacing: -0.03em;
+      font-weight: 300;
+      margin-bottom: 2.5rem;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold);
+      display: block;
+    }
+
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      gap: 2rem;
+      padding-bottom: 0.5rem;
+    }
+
+    .hero-desc {
+      max-width: 32ch;
+      color: var(--ink-soft);
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-left: auto;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-left: auto;
+      align-items: flex-end;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--ink);
+      color: var(--white);
+      padding: 0.9rem 2.2rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 400;
+      transition: background 0.25s, transform 0.2s;
+      border: 1px solid var(--ink);
+    }
+    .btn-primary:hover { background: var(--gold); border-color: var(--gold); transform: translateY(-2px); }
+
+    .btn-tel {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      color: var(--ink-soft);
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .btn-tel:hover { color: var(--gold); }
+    .btn-tel::before {
+      content: '';
+      display: block;
+      width: 1.5rem;
+      height: 1px;
+      background: currentColor;
+    }
+
+    .hero-image-band {
+      height: clamp(180px, 25vh, 280px);
+      margin-inline: calc(-1 * clamp(1.25rem, 5vw, 4rem));
+      position: relative;
+      overflow: hidden;
+      background: var(--ink);
+    }
+
+    .hero-image-band::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, var(--bg) 0%, transparent 15%, transparent 85%, var(--bg) 100%);
+    }
+
+    .hero-image-band svg {
+      width: 100%;
+      height: 100%;
+      opacity: 0.4;
+    }
+
+    .hero-band-text {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 300;
+      letter-spacing: 0.3em;
+      color: var(--white);
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* ─── MANIFESTE ─── */
+    #manifeste {
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .manifeste-inner {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: var(--gap);
+      align-items: start;
+    }
+
+    .manifeste-quote {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3vw, 2.6rem);
+      font-weight: 300;
+      line-height: 1.35;
+      color: var(--white);
+    }
+    .manifeste-quote em { font-style: italic; color: var(--gold-lt); }
+
+    .manifeste-body {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .manifeste-body p {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.95rem;
+      line-height: 1.85;
+    }
+    .manifeste-body strong { color: var(--white); font-weight: 400; }
+
+    /* ─── SERVICES ─── */
+    #services { background: var(--bg); }
+
+    .services-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: clamp(3rem, 6vw, 5rem);
+      gap: 2rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(21,19,16,0.1);
+      border: 1px solid rgba(21,19,16,0.1);
+    }
+
+    .service-item {
+      background: var(--bg);
+      padding: clamp(2rem, 4vw, 3rem);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      transition: background 0.3s;
+      cursor: default;
+    }
+    .service-item:hover { background: var(--ink); color: var(--white); }
+    .service-item:hover .service-num { color: var(--gold-lt); }
+    .service-item:hover .service-desc { color: rgba(255,255,255,0.6); }
+    .service-item:hover .label { color: var(--gold-lt); }
+
+    .service-num {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      font-weight: 300;
+      line-height: 1;
+      color: rgba(21,19,16,0.12);
+      transition: color 0.3s;
+    }
+
+    .service-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      font-weight: 300;
+      line-height: 1.2;
+    }
+
+    .service-desc {
+      font-size: 0.88rem;
+      color: var(--ink-soft);
+      line-height: 1.75;
+      transition: color 0.3s;
+    }
+
+    .service-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-top: auto;
+    }
+    .service-list li {
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+      color: var(--ink-soft);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition: color 0.3s;
+    }
+    .service-item:hover .service-list li { color: rgba(255,255,255,0.5); }
+    .service-list li::before {
+      content: '';
+      display: block;
+      width: 1rem;
+      height: 1px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    /* ─── CHIFFRES ─── */
+    #chiffres {
+      background: var(--surface);
+      padding-block: clamp(3rem, 7vw, 6rem);
+    }
+
+    .chiffres-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(21,19,16,0.08);
+      border: 1px solid rgba(21,19,16,0.08);
+    }
+
+    .chiffre-item {
+      background: var(--surface);
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .chiffre-val {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1;
+    }
+    .chiffre-val span { color: var(--gold); }
+
+    .chiffre-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+
+    /* ─── RÉALISATIONS ─── */
+    #realisations { background: var(--white); }
+
+    .realisations-header {
+      margin-bottom: clamp(2.5rem, 5vw, 4rem);
+    }
+
+    .realisations-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 0.75rem;
+    }
+
+    .realisation-item {
+      position: relative;
+      overflow: hidden;
+      background: var(--ink);
+    }
+    .realisation-item:first-child {
+      grid-row: 1 / 3;
+    }
+
+    .realisation-img {
+      width: 100%;
+      height: 100%;
+      min-height: 220px;
+      object-fit: cover;
+      filter: grayscale(1) contrast(1.05);
+      transition: transform 0.6s cubic-bezier(.22,1,.36,1), filter 0.4s;
+      display: block;
+    }
+    .realisation-item:hover .realisation-img {
+      transform: scale(1.04);
+      filter: grayscale(0.3) contrast(1);
+    }
+
+    .realisation-placeholder {
+      width: 100%;
+      height: 100%;
+      min-height: 220px;
+      background: linear-gradient(135deg, #2a2520 0%, #1a1510 50%, #2d2820 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.6s cubic-bezier(.22,1,.36,1);
+    }
+    .realisation-item:hover .realisation-placeholder { transform: scale(1.04); }
+
+    .stone-pattern {
+      position: absolute;
+      inset: 0;
+      opacity: 0.18;
+    }
+
+    .realisation-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.5rem;
+      background: linear-gradient(transparent, rgba(21,19,16,0.8));
+      color: var(--white);
+      transform: translateY(100%);
+      transition: transform 0.4s cubic-bezier(.22,1,.36,1);
+    }
+    .realisation-item:hover .realisation-caption { transform: translateY(0); }
+    .realisation-caption p { font-size: 0.82rem; color: rgba(255,255,255,0.7); }
+
+    /* ─── TÉMOIGNAGE ─── */
+    #temoignage {
+      background: var(--bg);
+      padding-block: clamp(4rem, 8vw, 7rem);
+    }
+
+    .temoignage-inner {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: clamp(3rem, 6vw, 6rem);
+      align-items: center;
+    }
+
+    .temoignage-accent {
+      font-family: var(--font-display);
+      font-size: clamp(6rem, 15vw, 13rem);
+      color: var(--gold);
+      line-height: 0.8;
+      font-weight: 300;
+      user-select: none;
+    }
+
+    .temoignage-content { display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .temoignage-text {
+      font-family: var(--font-display);
+      font-size: clamp(1.3rem, 2.8vw, 2.2rem);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.4;
+      color: var(--ink);
+    }
+
+    .temoignage-author {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+    .temoignage-author strong {
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .temoignage-author span { font-size: 0.78rem; color: var(--ink-soft); }
+
+    /* ─── ZONE ─── */
+    #zone {
+      background: var(--ink);
+      color: var(--white);
+      padding-block: clamp(3rem, 6vw, 5rem);
+    }
+
+    .zone-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--gap);
+      align-items: center;
+    }
+
+    .zone-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 300;
+      line-height: 1.15;
+    }
+    .zone-title em { font-style: italic; color: var(--gold-lt); }
+
+    .zone-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.4rem 2rem;
+    }
+    .zone-list li {
+      list-style: none;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.6);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .zone-list li::before {
+      content: '';
+      display: block;
+      width: 0.5rem;
+      height: 1px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    /* ─── CONTACT ─── */
+    #contact { background: var(--white); }
+
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem, 8vw, 7rem);
+      align-items: start;
+    }
+
+    .contact-left { display: flex; flex-direction: column; gap: 2rem; }
+
+    .contact-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 300;
+      line-height: 1.1;
+    }
+    .contact-title em { font-style: italic; color: var(--gold); }
+
+    .contact-infos { display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem; }
+
+    .contact-info-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+    .contact-info-item .contact-info-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .contact-info-item a, .contact-info-item span {
+      font-size: 1rem;
+      color: var(--ink);
+      transition: color 0.2s;
+    }
+    .contact-info-item a:hover { color: var(--gold); }
+
+    /* FORM BASE */
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 0.75rem; }
+
+    .form-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+
+    .form-control {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(21,19,16,0.2);
+      padding: 0.75rem 0;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+    .form-control::placeholder { color: rgba(21,19,16,0.35); }
+    .form-control:focus { border-bottom-color: var(--gold); }
+    textarea.form-control { resize: vertical; min-height: 80px; }
+
+    /* ─── MULTI-STEP FORM ─── */
+    .form-progress {
+      height: 2px;
+      background: rgba(21,19,16,0.1);
+      margin-bottom: 2rem;
+      overflow: hidden;
+    }
+    .form-progress-bar {
+      height: 100%;
+      width: 0;
+      background: var(--gold);
+      transition: width 0.4s cubic-bezier(.4,0,.2,1);
+    }
+    .form-step { display: none; }
+    .form-step.active { display: block; animation: fadeUp 0.35s cubic-bezier(.22,1,.36,1) forwards; }
+    .form-step-eyebrow {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+    .form-step-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.3rem, 2.5vw, 1.9rem);
+      font-weight: 300;
+      margin-bottom: 0.4rem;
+      color: var(--ink);
+    }
+    .form-step-sub {
+      color: var(--ink-soft);
+      font-size: 0.88rem;
+      margin-bottom: 1.25rem;
+    }
+    .form-choices { display: flex; flex-direction: column; gap: 0.5rem; }
+    .form-choices.two { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+    .form-choices.two .form-choice:last-child:nth-child(odd) { grid-column: 1 / -1; }
+    .form-choice {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.85rem 1rem;
+      background: transparent;
+      border: 1px solid rgba(21,19,16,0.15);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 300;
+      cursor: pointer;
+      text-align: left;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .form-choice:hover { border-color: var(--gold); }
+    .form-choice.sel { border-color: var(--gold); background: rgba(184,154,90,0.08); }
+    .form-choice .choice-check { color: var(--gold); opacity: 0; font-size: 0.8rem; transition: opacity 0.2s; flex-shrink: 0; }
+    .form-choice.sel .choice-check { opacity: 1; }
+    .form-nav { display: flex; gap: 0.75rem; margin-top: 1.5rem; }
+    .btn-nav-ghost {
+      background: transparent;
+      border: 1px solid rgba(21,19,16,0.15);
+      color: var(--ink-soft);
+      padding: 0.9rem 1.4rem;
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-nav-ghost:hover { border-color: var(--ink); color: var(--ink); }
+    .btn-submit {
+      flex: 1;
+      background: var(--ink);
+      color: var(--white);
+      border: 1px solid var(--ink);
+      padding: 1rem 2rem;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 400;
+      cursor: pointer;
+      transition: background 0.25s, transform 0.2s;
+    }
+    .btn-submit:hover:not(:disabled) { background: var(--gold); border-color: var(--gold); }
+    .btn-submit:disabled { background: rgba(21,19,16,0.1); border-color: rgba(21,19,16,0.1); color: var(--ink-soft); cursor: not-allowed; }
+    .form-success-box { text-align: center; padding: 2.5rem 0; display: none; }
+    .form-success-box.active { display: block; }
+    .form-success-icon {
+      width: 52px; height: 52px;
+      border: 1.5px solid var(--gold);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.25rem;
+      color: var(--gold);
+    }
+    .form-hint { font-size: 0.75rem; color: #c0392b; margin-top: 0.25rem; display: none; }
+    .form-hint.show { display: block; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.45);
+      padding: 2rem clamp(1.25rem, 5vw, 4rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--white);
+      letter-spacing: 0.06em;
+    }
+    .footer-logo span { color: var(--gold); }
+
+    footer p { font-size: 0.72rem; letter-spacing: 0.05em; }
+
+    /* ─── STICKY MOBILE BAR ─── */
+    .mobile-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      background: var(--ink);
+      padding: 0.9rem 1.5rem;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .mobile-bar-text {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--white);
+    }
+
+    .mobile-bar-btn {
+      background: var(--gold);
+      color: var(--white);
+      padding: 0.6rem 1.4rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      font-weight: 400;
+    }
+
+    /* ─── DIVIDER ─── */
+    .divider {
+      height: 1px;
+      background: rgba(21,19,16,0.08);
+      margin-block: 0;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-right { margin-left: 0; }
+      .hero-desc { margin-left: 0; max-width: 100%; }
+      .hero-actions { align-items: flex-start; }
+
+      .manifeste-inner { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .chiffres-grid { grid-template-columns: 1fr 1fr; }
+      .realisations-grid { grid-template-columns: 1fr 1fr; }
+      .realisations-grid .realisation-item:first-child { grid-row: auto; }
+      .temoignage-inner { grid-template-columns: 1fr; }
+      .temoignage-accent { font-size: 5rem; }
+      .zone-inner { grid-template-columns: 1fr; }
+      .contact-inner { grid-template-columns: 1fr; }
+
+      nav { display: none; }
+      .mobile-bar { display: flex; }
+      body { padding-bottom: 4rem; }
+    }
+
+    @media (max-width: 560px) {
+      .chiffres-grid { grid-template-columns: 1fr; }
+      .realisations-grid { grid-template-columns: 1fr; }
+      .form-choices.two { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="header">
+    <div class="logo">Ducasse <span>&</span> Fils</div>
+    <nav>
+      <a href="#services">Métiers</a>
+      <a href="#realisations">Réalisations</a>
+      <a href="#zone">Zone</a>
+      <a href="#contact" class="btn-header">Demander un devis</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-eyebrow anim anim-delay-1">
+          <span class="label">Maçon Tailleur de Pierre — Bordeaux</span>
+        </div>
+        <h1 class="hero-title anim anim-delay-2">
+          La pierre,<br />
+          <em>gravée</em><br />
+          dans le temps.
+        </h1>
+      </div>
+      <div class="hero-right anim anim-delay-3">
+        <p class="hero-desc">
+          Ducasse &amp; Fils perpétue un savoir-faire exigeant : restauration de bâtiments anciens, taille sur mesure et création de pièces décoratives en pierre naturelle, à Bordeaux et en Gironde.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary">Demander un devis gratuit</a>
+          <a href="tel:+33XXXXXXXXX" class="btn-tel">+33 X XX XX XX XX</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero band -->
+    <div class="hero-image-band">
+      <svg viewBox="0 0 1200 280" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="stones" x="0" y="0" width="200" height="80" patternUnits="userSpaceOnUse">
+            <rect x="2" y="2" width="96" height="36" rx="1" fill="#3a3328" stroke="#5a5040" stroke-width="0.5"/>
+            <rect x="102" y="2" width="96" height="36" rx="1" fill="#2e2820" stroke="#4a4030" stroke-width="0.5"/>
+            <rect x="52" y="42" width="96" height="36" rx="1" fill="#332d22" stroke="#524838" stroke-width="0.5"/>
+            <rect x="152" y="42" width="96" height="36" rx="1" fill="#28221a" stroke="#46402e" stroke-width="0.5"/>
+            <rect x="2" y="42" width="46" height="36" rx="1" fill="#3c3528" stroke="#564e38" stroke-width="0.5"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#stones)"/>
+      </svg>
+      <div class="hero-band-text">DUCASSE &amp; FILS</div>
+    </div>
+  </section>
+
+  <!-- MANIFESTE -->
+  <section id="manifeste">
+    <div class="container">
+      <div class="manifeste-inner">
+        <div>
+          <p class="label" style="color: var(--gold-lt); margin-bottom: 1.5rem;">Notre philosophie</p>
+          <blockquote class="manifeste-quote anim">
+            Chaque pierre taillée est une <em>décision irréversible</em>. Nous la prenons avec soin.
+          </blockquote>
+        </div>
+        <div class="manifeste-body anim anim-delay-2">
+          <p>
+            Chez Ducasse &amp; Fils, nous travaillons la pierre comme elle l'a toujours été — à la main, à l'œil, avec les outils que la tradition a perfectionnés au fil des siècles. <strong>Ce n'est pas nostalgie : c'est précision.</strong>
+          </p>
+          <p>
+            Fondée à Bordeaux, notre maison intervient sur les bâtiments anciens qu'il faut préserver, sur les projets contemporains qui exigent un caractère, sur les monuments et décors qui doivent traverser le temps. <strong>Devis gratuit et transparence sur nos tarifs</strong> — parce que la confiance se construit avant le premier coup de ciseau.
+          </p>
+          <p>
+            Assurance décennale. Artisan qualifié. Membre de la Fédération Française du Bâtiment.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="services-header">
+        <div>
+          <p class="label" style="margin-bottom: 0.75rem;">Ce que nous faisons</p>
+          <h2 class="heading-xl anim">Nos<br /><em style="font-style:italic; font-family: var(--font-display);">métiers</em></h2>
+        </div>
+        <p style="max-width: 28ch; color: var(--ink-soft); font-size: 0.88rem; text-align: right;" class="anim anim-delay-2">
+          Trois savoir-faire complémentaires, une seule exigence : le travail bien fait.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-item anim">
+          <div class="service-num">01</div>
+          <p class="label">Restauration</p>
+          <h3 class="service-title">Restauration<br />& Rénovation</h3>
+          <p class="service-desc">
+            Façades, murs de clôture, voûtes, encadrements — nous intervenons sur le bâti ancien pour lui redonner intégrité sans effacer son histoire.
+          </p>
+          <ul class="service-list">
+            <li>Ravalement de façades en pierre</li>
+            <li>Réfection de joints et maçonnerie</li>
+            <li>Consolidation et reprise en sous-œuvre</li>
+            <li>Bâtiments anciens &amp; maisons de maître</li>
+          </ul>
+        </div>
+
+        <div class="service-item anim anim-delay-2">
+          <div class="service-num">02</div>
+          <p class="label">Taille sur mesure</p>
+          <h3 class="service-title">Taille<br />Sur Mesure</h3>
+          <p class="service-desc">
+            Escaliers, corniches, colonnettes, linteaux — chaque pièce est taillée dans la masse selon les plans et l'architecture du lieu.
+          </p>
+          <ul class="service-list">
+            <li>Escaliers en pierre naturelle</li>
+            <li>Encadrements portes &amp; fenêtres</li>
+            <li>Dallage et revêtements sol</li>
+            <li>Éléments architecturaux sur plan</li>
+          </ul>
+        </div>
+
+        <div class="service-item anim anim-delay-3">
+          <div class="service-num">03</div>
+          <p class="label">Décoration</p>
+          <h3 class="service-title">Monuments<br />& Décoration</h3>
+          <p class="service-desc">
+            Fontaines, sculptures, stèles, vasques, éléments funéraires — la pierre comme matière d'expression, façonnée pour durer.
+          </p>
+          <ul class="service-list">
+            <li>Fontaines et vasques</li>
+            <li>Sculptures et bas-reliefs</li>
+            <li>Stèles et monuments funéraires</li>
+            <li>Éléments de jardin sur mesure</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHIFFRES -->
+  <section id="chiffres">
+    <div class="container">
+      <div class="chiffres-grid">
+        <div class="chiffre-item anim">
+          <div class="chiffre-val">30<span>+</span></div>
+          <div class="chiffre-label">Ans d'expérience</div>
+        </div>
+        <div class="chiffre-item anim anim-delay-1">
+          <div class="chiffre-val">500<span>+</span></div>
+          <div class="chiffre-label">Chantiers réalisés</div>
+        </div>
+        <div class="chiffre-item anim anim-delay-2">
+          <div class="chiffre-val">100<span>%</span></div>
+          <div class="chiffre-label">Pierre naturelle</div>
+        </div>
+        <div class="chiffre-item anim anim-delay-3">
+          <div class="chiffre-val">10<span>ans</span></div>
+          <div class="chiffre-label">Garantie décennale</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RÉALISATIONS -->
+  <section id="realisations">
+    <div class="container">
+      <div class="realisations-header">
+        <p class="label" style="margin-bottom: 0.75rem;">Nos travaux</p>
+        <h2 class="heading-xl anim">Réalisations</h2>
+      </div>
+
+      <div class="realisations-grid">
+        <div class="realisation-item">
+          <div class="realisation-placeholder" style="min-height: 500px;">
+            <svg class="stone-pattern" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+              <defs><pattern id="sp1" x="0" y="0" width="100" height="50" patternUnits="userSpaceOnUse">
+                <rect x="1" y="1" width="48" height="23" rx="0.5" fill="#fff" opacity="0.06"/>
+                <rect x="51" y="1" width="48" height="23" rx="0.5" fill="#fff" opacity="0.04"/>
+                <rect x="26" y="26" width="48" height="23" rx="0.5" fill="#fff" opacity="0.05"/>
+                <rect x="1" y="26" width="23" height="23" rx="0.5" fill="#fff" opacity="0.03"/>
+              </pattern></defs>
+              <rect width="100%" height="100%" fill="url(#sp1)"/>
+            </svg>
+            <div style="position:relative;z-index:1;text-align:center;">
+              <p style="font-family:var(--font-display);font-size:0.9rem;color:rgba(255,255,255,0.3);letter-spacing:0.1em;">Photo de réalisation</p>
+            </div>
+            <div class="realisation-caption">
+              <p class="label" style="color: var(--gold-lt); margin-bottom: 0.25rem;">Restauration</p>
+              <h4 style="font-family:var(--font-display);font-size:1.2rem;font-weight:300;color:#fff;">Façade XVIII<sup>e</sup> — Bordeaux centre</h4>
+              <p>Ravalement complet en pierre de taille calcaire, rejointoiement traditionnel.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="realisation-item">
+          <div class="realisation-placeholder" style="min-height: 240px;">
+            <svg class="stone-pattern" viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
+              <defs><pattern id="sp2" x="0" y="0" width="80" height="40" patternUnits="userSpaceOnUse">
+                <rect x="1" y="1" width="38" height="18" rx="0.5" fill="#fff" opacity="0.05"/>
+                <rect x="41" y="1" width="38" height="18" rx="0.5" fill="#fff" opacity="0.07"/>
+                <rect x="21" y="21" width="38" height="18" rx="0.5" fill="#fff" opacity="0.04"/>
+                <rect x="1" y="21" width="18" height="18" rx="0.5" fill="#fff" opacity="0.06"/>
+              </pattern></defs>
+              <rect width="100%" height="100%" fill="url(#sp2)"/>
+            </svg>
+            <div class="realisation-caption">
+              <p class="label" style="color: var(--gold-lt); margin-bottom: 0.25rem;">Taille sur mesure</p>
+              <h4 style="font-family:var(--font-display);font-size:1.1rem;font-weight:300;color:#fff;">Escalier en calcaire — Villa privée</h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="realisation-item">
+          <div class="realisation-placeholder" style="min-height: 240px; background: linear-gradient(135deg,#1e1b14,#2d2920);">
+            <svg class="stone-pattern" viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
+              <defs><pattern id="sp3" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+                <circle cx="30" cy="30" r="8" fill="none" stroke="#fff" stroke-width="0.4" opacity="0.08"/>
+                <rect x="10" y="10" width="40" height="40" rx="0.5" fill="none" stroke="#fff" stroke-width="0.3" opacity="0.05"/>
+              </pattern></defs>
+              <rect width="100%" height="100%" fill="url(#sp3)"/>
+            </svg>
+            <div class="realisation-caption">
+              <p class="label" style="color: var(--gold-lt); margin-bottom: 0.25rem;">Décoration</p>
+              <h4 style="font-family:var(--font-display);font-size:1.1rem;font-weight:300;color:#fff;">Fontaine de jardin sculptée</h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="realisation-item">
+          <div class="realisation-placeholder" style="min-height: 240px; background: linear-gradient(135deg,#252018,#1a1712);">
+            <svg class="stone-pattern" viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
+              <defs><pattern id="sp4" x="0" y="0" width="50" height="30" patternUnits="userSpaceOnUse">
+                <rect x="1" y="1" width="48" height="13" rx="0.5" fill="#fff" opacity="0.04"/>
+                <rect x="1" y="16" width="23" height="13" rx="0.5" fill="#fff" opacity="0.06"/>
+                <rect x="26" y="16" width="23" height="13" rx="0.5" fill="#fff" opacity="0.03"/>
+              </pattern></defs>
+              <rect width="100%" height="100%" fill="url(#sp4)"/>
+            </svg>
+            <div class="realisation-caption">
+              <p class="label" style="color: var(--gold-lt); margin-bottom: 0.25rem;">Restauration</p>
+              <h4 style="font-family:var(--font-display);font-size:1.1rem;font-weight:300;color:#fff;">Portail en pierre de taille — Domaine viticole</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p style="margin-top: 2rem; font-size: 0.82rem; color: var(--ink-soft); text-align: right;">
+        <a href="#contact" style="color: var(--gold); letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.72rem;">Voir plus de réalisations →</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- TÉMOIGNAGE -->
+  <section id="temoignage">
+    <div class="container">
+      <div class="temoignage-inner">
+        <div class="temoignage-accent">"</div>
+        <div class="temoignage-content anim">
+          <blockquote class="temoignage-text">
+            Ducasse &amp; Fils a restauré la façade de notre maison du XVIII<sup>e</sup> siècle avec un soin remarquable. On sent que pour eux, chaque pierre compte vraiment.
+          </blockquote>
+          <div class="temoignage-author">
+            <strong>Marie-Laure B.</strong>
+            <span>Propriétaire, Bordeaux — Restauration façade</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ZONE -->
+  <section id="zone">
+    <div class="container">
+      <div class="zone-inner">
+        <div class="anim">
+          <p class="label" style="color: var(--gold-lt); margin-bottom: 1rem;">Intervention locale</p>
+          <h2 class="zone-title">
+            Ancrés à<br />
+            <em>Bordeaux</em>,<br />
+            disponibles partout<br />en Gironde.
+          </h2>
+        </div>
+        <div class="anim anim-delay-2">
+          <p style="color: rgba(255,255,255,0.55); font-size: 0.88rem; margin-bottom: 1.5rem; line-height: 1.8;">
+            Nous intervenons principalement sur Bordeaux et la Gironde. Pour les projets exceptionnels, nous nous déplaçons en Nouvelle-Aquitaine.
+          </p>
+          <ul class="zone-list">
+            <li>Bordeaux</li>
+            <li>Mérignac</li>
+            <li>Pessac</li>
+            <li>Talence</li>
+            <li>Bègles</li>
+            <li>Lormont</li>
+            <li>Libourne</li>
+            <li>Arcachon</li>
+            <li>Médoc</li>
+            <li>Libournais</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-inner">
+        <div class="contact-left anim">
+          <div>
+            <p class="label" style="margin-bottom: 0.75rem;">Parlons de votre projet</p>
+            <h2 class="contact-title">Un projet ?<br /><em>Écrivez-nous.</em></h2>
+          </div>
+          <p style="color: var(--ink-soft); font-size: 0.92rem; line-height: 1.8; max-width: 34ch;">
+            Devis gratuit, réponse sous 48h. Nous venons voir votre chantier avant de vous proposer quoi que ce soit.
+          </p>
+          <div class="contact-infos">
+            <div class="contact-info-item">
+              <span class="contact-info-label">Téléphone</span>
+              <a href="tel:+33XXXXXXXXX">+33 X XX XX XX XX</a>
+            </div>
+            <div class="contact-info-item">
+              <span class="contact-info-label">E-mail</span>
+              <a href="mailto:contact@ducasse-et-fils.fr">contact@ducasse-et-fils.fr</a>
+            </div>
+            <div class="contact-info-item">
+              <span class="contact-info-label">Adresse</span>
+              <span>Bordeaux, Gironde — France</span>
+            </div>
+            <div class="contact-info-item">
+              <span class="contact-info-label">Horaires</span>
+              <span>Lun–Ven, 8h–18h</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- FORMULAIRE MULTI-ÉTAPES -->
+        <div class="anim anim-delay-2" id="devis-form-wrap">
+          <div class="form-progress"><div class="form-progress-bar" id="form-bar"></div></div>
+
+          <!-- Étape 1 — Type de bien -->
+          <div class="form-step active" data-step="0">
+            <div class="form-step-eyebrow">Étape 1 / 5</div>
+            <h3 class="form-step-title">Quel type de bâtiment ?</h3>
+            <p class="form-step-sub">Cela nous aide à adapter notre approche.</p>
+            <div class="form-choices two" data-field="type_bien">
+              <button type="button" class="form-choice" data-val="maison-ancienne">Maison ancienne<span class="choice-check">✓</span></button>
+              <button type="button" class="form-choice" data-val="monument-historique">Monument historique<span class="choice-check">✓</span></button>
+              <button type="button" class="form-choice" data-val="maison-neuve">Maison neuve<span class="choice-check">✓</span></button>
+            </div>
+          </div>
+
+          <!-- Étape 2 — Type de travaux -->
+          <div class="form-step" data-step="1">
+            <div class="form-step-eyebrow">Étape 2 / 5</div>
+            <h3 class="form-step-title">Quel type de travaux ?</h3>
+            <p class="form-step-sub">Choisissez le plus proche de votre projet.</p>
+            <div class="form-choices" data-field="type_travaux">
+              <button type="button" class="form-choice" data-val="restauration-pierre">Restauration de pierre<span class="choice-check">✓</span></button>
+              <button type="button" class="form-choice" data-val="taille-pierre-neuve">Taille de pierre neuve<span class="choice-check">✓</span></button>
+              <button type="button" class="form-choice" data-val="mur-pierre-seche">Mur en pierre sèche<span class="choice-check">✓</span></button>
+              <button type="button" class="form-choice" data-val="escalier-pierre">Escalier en pierre<span class="choice-check">✓</span></button>
+              <button type="button" class="form-choice" data-val="encadrement-baie">Encadrement de baie / Linteau<span class="choice-check">✓</span></button>
+              <button type="button" class="form-choice" data-val="autre">Autre projet<span class="choice-check">✓</span></button>
+            </div>
+          </div>
+
+          <!-- Étape 3 — Ampleur -->
+          <div class="form-step" data-step="2">
+            <div class="form-step-eyebrow">Étape 3 / 5</div>
+            <h3 class="form-step-title">Quelle est l'ampleur du chantier ?</h3>
+            <p class="form-step-sub">Une estimation suffit.</p>
+            <div class="form-choices" data-field="surface">
+              <button type="button" class="form-choice" data-val="quelques-elements">Quelques éléments (moins de 2 m²)<span class="choice-check">✓</span></button>
+              <button type="button" class="form-choice" data-val="piece-ou-facade">Une pièce ou une façade (2–20 m²)<span class="choice-check">✓</span></button>
+              <button type="button" class="form-choice" data-val="grand-chantier">Grand chantier (plus de 20 m²)<span class="choice-check">✓</span></button>
+              <button type="button" class="form-choice" data-val="je-ne-sais-pas">Je ne sais pas encore<span class="choice-check">✓</span></button>
+            </div>
+          </div>
+
+          <!-- Étape 4 — Délai -->
+          <div class="form-step" data-step="3">
+            <div class="form-step-eyebrow">Étape 4 / 5</div>
+            <h3 class="form-step-title">C'est pour quand ?</h3>
+            <p class="form-step-sub">Pour mieux planifier votre chantier.</p>
+            <div class="form-choices" data-field="delai">
+              <button type="button" class="form-choice" data-val="urgent">Urgent (moins d'un mois)<span class="choice-check">✓</span></button>
+              <button type="button" class="form-choice" data-val="1-3-mois">Dans 1 à 3 mois<span class="choice-check">✓</span></button>
+              <button type="button" class="form-choice" data-val="flexible">Je suis flexible<span class="choice-check">✓</span></button>
+            </div>
+          </div>
+
+          <!-- Étape 5 — Coordonnées -->
+          <div class="form-step" data-step="4">
+            <div class="form-step-eyebrow">Étape 5 / 5</div>
+            <h3 class="form-step-title">Vos coordonnées</h3>
+            <p class="form-step-sub">Pour vous envoyer votre devis. L'email est obligatoire.</p>
+            <div class="form-group">
+              <label class="form-label" for="devis-nom">Nom</label>
+              <input class="form-control" type="text" id="devis-nom" placeholder="Jean Dupont" autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="devis-email">E-mail</label>
+              <input class="form-control" type="email" id="devis-email" placeholder="jean@exemple.fr" autocomplete="email" />
+              <div class="form-hint" id="hint-email">Merci d'indiquer un email valide.</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="devis-tel">Téléphone</label>
+              <input class="form-control" type="tel" id="devis-tel" placeholder="06 12 34 56 78" autocomplete="tel" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="devis-message">Décrivez votre projet (optionnel)</label>
+              <textarea class="form-control" id="devis-message" placeholder="Localisation, état actuel, souhaits…" rows="3"></textarea>
+            </div>
+          </div>
+
+          <!-- Succès -->
+          <div class="form-success-box" id="form-success">
+            <div class="form-success-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            </div>
+            <p class="label" style="margin-bottom: 0.5rem;">Demande envoyée</p>
+            <p style="color: var(--ink-soft); font-size: 0.92rem; line-height: 1.8;">Nous avons bien reçu votre demande. Nous revenons vers vous sous 48h pour discuter de votre projet.</p>
+          </div>
+
+          <!-- Navigation -->
+          <div class="form-nav" id="form-nav">
+            <button type="button" class="btn-nav-ghost" id="form-prev" style="display:none">Retour</button>
+            <button type="button" class="btn-submit" id="form-next" disabled>Continuer</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Ducasse <span>&</span> Fils</div>
+    <p>Maçon Tailleur de Pierre — Bordeaux, Gironde</p>
+    <p>© 2024 Ducasse &amp; Fils — Tous droits réservés</p>
+  </footer>
+
+  <!-- MOBILE STICKY BAR -->
+  <div class="mobile-bar">
+    <span class="mobile-bar-text">Ducasse <span style="color:var(--gold)">&</span> Fils</span>
+    <a href="tel:+33XXXXXXXXX" class="mobile-bar-btn">Appeler maintenant</a>
+  </div>
+
+  <script>
+    // ─── HEADER SCROLL ───
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // ─── SCROLL ANIMATIONS ───
+    const animEls = document.querySelectorAll('.anim');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    animEls.forEach(el => observer.observe(el));
+
+    // ─── HERO ANIMATION ON LOAD ───
+    document.querySelectorAll('.anim').forEach((el, i) => {
+      if (el.closest('#hero')) {
+        setTimeout(() => el.classList.add('visible'), 100 + i * 120);
+      }
+    });
+
+    // ─── MULTI-STEP DEVIS FORM ───
+    const WEBHOOK_URL = "https://n8n-15fc.srv1755026.hstgr.cloud/webhook/devis-nouveau";
+    const formData = {
+      type_bien: "", type_travaux: "", surface: "", delai: "",
+      nom: "", email: "", telephone: "", message: "", canal_prefere: "email"
+    };
+    let currentStep = 0;
+    const TOTAL_STEPS = 5;
+
+    const formBar    = document.getElementById('form-bar');
+    const formNav    = document.getElementById('form-nav');
+    const btnPrev    = document.getElementById('form-prev');
+    const btnNext    = document.getElementById('form-next');
+    const formSuccess = document.getElementById('form-success');
+    const formSteps  = [...document.querySelectorAll('.form-step')];
+
+    function showStep(i) {
+      currentStep = i;
+      formSteps.forEach(s => s.classList.toggle('active', +s.dataset.step === i));
+      formBar.style.width = ((i / TOTAL_STEPS) * 100) + '%';
+      btnPrev.style.display = (i > 0) ? 'block' : 'none';
+      btnNext.textContent = (i === TOTAL_STEPS - 1) ? 'Envoyer ma demande' : 'Continuer';
+      refreshBtn();
+    }
+
+    document.querySelectorAll('.form-choices').forEach(group => {
+      const field = group.dataset.field;
+      group.querySelectorAll('.form-choice').forEach(btn => {
+        btn.addEventListener('click', () => {
+          group.querySelectorAll('.form-choice').forEach(b => b.classList.remove('sel'));
+          btn.classList.add('sel');
+          formData[field] = btn.dataset.val;
+          refreshBtn();
+          // Auto-avance après sélection
+          setTimeout(() => {
+            if (currentStep < TOTAL_STEPS - 1) showStep(currentStep + 1);
+          }, 300);
+        });
+      });
+    });
+
+    const keyMap = { 'devis-nom': 'nom', 'devis-email': 'email', 'devis-tel': 'telephone', 'devis-message': 'message' };
+    Object.keys(keyMap).forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.addEventListener('input', e => {
+        formData[keyMap[id]] = e.target.value.trim();
+        if (id === 'devis-email') document.getElementById('hint-email').classList.remove('show');
+        refreshBtn();
+      });
+    });
+
+    function emailValide(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+    function stepValide(i) {
+      if (i === 0) return !!formData.type_bien;
+      if (i === 1) return !!formData.type_travaux;
+      if (i === 2) return !!formData.surface;
+      if (i === 3) return !!formData.delai;
+      if (i === 4) return emailValide(formData.email);
+      return true;
+    }
+    function refreshBtn() { btnNext.disabled = !stepValide(currentStep); }
+
+    btnPrev.addEventListener('click', () => showStep(Math.max(0, currentStep - 1)));
+    btnNext.addEventListener('click', () => {
+      if (!stepValide(currentStep)) {
+        if (currentStep === 4 && !emailValide(formData.email))
+          document.getElementById('hint-email').classList.add('show');
+        return;
+      }
+      if (currentStep < TOTAL_STEPS - 1) { showStep(currentStep + 1); }
+      else { envoyerDevis(); }
+    });
+
+    async function envoyerDevis() {
+      btnNext.disabled = true;
+      btnNext.textContent = 'Envoi…';
+      try {
+        const res = await fetch(WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        formNav.style.display = 'none';
+        formSteps.forEach(s => s.classList.remove('active'));
+        formSuccess.classList.add('active');
+        formBar.style.width = '100%';
+      } catch (err) {
+        console.error(err);
+        btnNext.textContent = 'Erreur — Réessayer';
+        btnNext.disabled = false;
+      }
+    }
+
+    showStep(0);
+  </script>
+</body>
+</html>
